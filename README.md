@@ -1,72 +1,49 @@
 # Phase 1 Project Template - Minimum Viable Product (MVP)
 
-![blueprint](images/blueprint.png)
 
-This repository is like a blueprint, providing structure for your first End of Phase Project. We suggest you base your Phase 1 project off of this repository so you can focus less on formatting and organization, and more on the _analysis and communication skills_ that will support your progress through the course. This template is designed to make your project portfolio-ready in order to impress the future employers who will review it. 
 
-## Repository Contents
+**Author**: Gaja Sanchayan
 
-Below is a list of the contents of this repository - instructions for using them are in the next section.
+## Overview
 
-- `README.md`: The README for this repo branch explaining it's contents - you're reading it now
-- `TEMPLATE_README.md`: An example of a project README that provides a brief overview of your whole project
-- `dsc-phase1-project-template.ipynb`: A starter Jupyter Notebook with headings, code examples and guiding questions
-- `DS_Project_Presentation_Template.pdf`: A starter slide deck presenting your project - here is an [editable version](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy)
-- `zippedData` folder: A folder for the data you reference with your code
-- `images` folder: A folder for the images you reference in your files 
-- `.gitignore`: A hidden file that tells git to not track certain files and folders
+In this analysis , we used a set of data about house prices in Northwestern country to analyze what factors drives the house prices in that area which will be used by real estate agency to advice potential sellers.
 
-## Instructions For Using This Repository
+## Business Problem
 
-### Fork This Repository
+To provide analysis on what factors drives the house prices in Northwestern country to Local Real estate Agency for them  to advice potential sellers.
 
-**For a group project**, have only one team member do these steps:
 
-1. Fork this repository to your personal account
-   - In GitHub, go to this repository and click the "Fork" button in the upper right
-   
-2. Change the name of your fork of this repo to a _descriptive_ name of your choosing
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Options" -> "Repository Name" -> "Rename"
-   - Make the name descriptive, since potential employers will read it. Ex: "Microsoft-Movie-Analysis" is better than "Project-1"
+## Data
+The analysis is based on a large data set of approximately 21500 housing sales. The data includes many different types of information about each houses. They were cataegorized in to two different types of data:
+Continuous Data- Sqft Living, Sqft Lot, Price etc
+Categorical Data –Bedrooms,Bathrooms, Grade, Condition, View 
 
-3. Use `git clone` to clone your fork of this repo to your local computer
+## Methods
 
-4. **For a group project**, add team members as collaborators to your fork of this repo
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Manage Access" -> "Invite Teams or People"
-   - Add your project team members as collaborators & send them the repo GitHub URL
+1.Data preparation and cleaning
+Understanding the available  Data (Scatter plot )
+Dropping few Features as they are not highly  related to house prices- (date, lat, long, zipcode, view)
+2. Regression modelling
+A baseline model and two Iteration models after to find the best line of fit to predict the house prices in future
+Model Assumptions to Verify the model
+2. Model Validation
+Validate the model to see how well the model is generalizing to future cases
 
-### Work In Your Fork Of This Repository
 
-- Work in the repo clone that you created on your local machine
-- Start writing and coding in the Jupyter Notebook `dsc-phase1-project-template.ipynb`
-- Fill in the README template in `TEMPLATE_README.md`
-- Use `git add`, `git commit`, and `git push` often to update your repo in GitHub
-   - For a refresher on how to do this and why it's important, review Topic 2: Bash and Git
+## Results
 
-### Use The Slide Template
+Based on Iteration 3 Model Summary, following predictions are made:
+There is positive relation ship between Price and Sqft.living, Condition and Grade
+For each unit increase in Sq.ft living, there will 0.56 increase in price 
+For each unit increase in condition, there will 0.08 increase in price 
+For each unit increase in Grade, there will 0.25 increase in price 
+There is negative relationship between Price and Sq.ft lot, bedrooms >4, and Bath>2
+The model validation was done using Train/Split method where 70% of sample used  for training and 30% for testing.
+The Mean square error of the residuals of both the samples were compared. There does not seem to be a big difference between the train and test MSE! Thus we can say the model is  generalizing well to future cases and is the best line of Fit.
 
-1. Go to [this link](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy) to make an editable copy of the slide deck in your own Google Drive account
-2. Go to "Slide," select "Change Theme," and pick a theme you like so your presentation doesn't look like everyone else's
-3. **For a group project**, click the "Share" button and add your teammates as editors
 
-### Tidy Up Your Project
 
-- Change the file name of the Jupyter Notebook (`dsc-phase1-project-template.ipynb`) to something more descriptive
-- Save an appropriately-named PDF version of your slide deck to the repository
-- Rename the template readme you've been working in by running `git mv TEMPLATE_README.md README.md`
-- Delete unnecessary files from the repo using `git rm`
-   - The presentation PDF: `DS_Project_Presentation_Template.pdf`
-   - Any unused data files in the `zippedData` folder
-   - Any unused images in the `images` folder
-- Utilize the .gitignore file to ignore large unzipped data files in the `zippedData` folder
-   - Add `*.csv`,`*.tsv`, and `*.db` to the .gitignore file
 
-### Submit Your Project
 
-To submit your project, please follow the instructions in the "Project Submission & Review" page in the Milestones course.
 
-***
-### Notes
 
-- The visualizations in the notebook use best practices for visualization that you should try to emulate. For example, they have clear axes, descriptive titles, and appropriate number formatting
-- The `dsc-phase1-project-template.ipynb` is intended to be the _final version_ of your project. The first notebook you create will not look like this. You are encouraged to start with a very disorderly notebook and clean it as you go
